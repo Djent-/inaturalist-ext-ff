@@ -1,9 +1,18 @@
-chrome.storage.sync.get({
+browser.storage.local.get({
 	enableColorVision: true,
 	enableCopyGeo: true,
 	enableIdentifierStats: true,
 	enableLogging: false
 }, function(items) {
+	console.debug(items);
+	if (items === undefined) {
+		items = {
+			enableColorVision: true,
+			enableCopyGeo: true,
+			enableIdentifierStats: true,
+			enableLogging: false
+		};
+	}
 	const LOGGING_ENABLED = items.enableLogging;
 	const DEFAULT_KEY_NAME = 'default';
 	const FLAG_CLASS = 'expanded';
@@ -181,7 +190,7 @@ chrome.storage.sync.get({
 
 							if (score) {
 								let hue = score * 1.2;
-								chrome.storage.sync.get({
+								browser.storage.local.get({
 									colorDisplayMode: 'sidebar',
 									enableColorBlindMode: false
 								}, function(items) {
@@ -232,7 +241,7 @@ chrome.storage.sync.get({
 		observer.observe(ul, options);
 	});
 
-	chrome.storage.sync.get({
+	browser.storage.local.get({
 		colorDisplayMode: 'sidebar'
 	}, function(items) {
 		const link = document.createElement('link');

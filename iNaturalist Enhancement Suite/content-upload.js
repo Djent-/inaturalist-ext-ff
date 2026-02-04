@@ -1,4 +1,4 @@
-chrome.storage.sync.get({
+browser.storage.local.get({
 	enableCopyGeo: true,
 	enableLogging: false
 }, function(items) {

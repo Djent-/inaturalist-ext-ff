@@ -1,4 +1,4 @@
-chrome.storage.sync.get({
+browser.storage.local.get({
 	enableCount: true,
 	enableLogging: false
 }, async function(items) {

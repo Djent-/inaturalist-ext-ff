@@ -90,5 +90,11 @@
   "web_accessible_resources": [{
     "resources": ["gradient.css","sidebar.css"],
     "matches": ["https://*/*"]
-  }]
+  }],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "@inaturalist-es",
+      "strict_min_version": "58.0"
+    }
+  }
 }

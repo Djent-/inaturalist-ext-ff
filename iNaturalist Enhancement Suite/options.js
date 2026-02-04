@@ -6,7 +6,7 @@ function saveOptions() {
     const enableCopyGeo = document.getElementById('copy-geocoordinates').checked;
     const enableIdentifierStats = document.getElementById('identifier-stats').checked;
     const enableLogging = document.getElementById('enable-logging').checked;
-    chrome.storage.sync.set({
+    browser.storage.local.set({
         enableColorVision,
         colorDisplayMode,
         enableColorBlindMode,
@@ -24,7 +24,7 @@ function saveOptions() {
 }
   
 function restoreOptions() {
-    chrome.storage.sync.get({
+    browser.storage.local.get({
         enableColorVision: true,
         colorDisplayMode: 'sidebar',
         enableColorBlindMode: false,
